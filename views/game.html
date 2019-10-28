@@ -11,9 +11,49 @@
     <script src="./js/augr-game-tracker.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function(){
+            loadQuestionsAndAnswers();
             initScene();
             sessionManager.connection = io.connect(location.host);
         });
+
+        function loadQuestionsAndAnswers(){
+          let bank = [
+            {
+              question: "Which U.S. President signed the National Aeronautics and Space Act on July 29, 1958, creating the National Aeronautics and Space Administration?",
+              answers: [
+                "Ronald Reagan",
+                "Dwight D. Eisenhower",
+                "Harry S. Truman",
+                "Franklin D. Roosevelt"
+              ]
+            },
+            {
+              question: "On October 26, 1907, which French airmen set a flying distance record of 2,350 feet winning him the Arhdeacon Cup",
+              answers: [
+                "Jean-Phillip Aimesly",
+                "Wilbur Beauchamp",
+                "Henri Farman",
+                "Eli Closemen"
+              ]
+            },
+            {
+              question: "On what date was Sputnik 1, the first artificial satellite to orbit the Earth, launched by the Soviet Union? ",
+              answers: [
+                "October 1, 1958",
+                "October 4, 1957",
+                "October 14, 1947",
+                "October 3, 1962"
+              ]
+            },
+          ];
+
+          document.getElementById("question-container").setAttribute("text", "value", bank[0].question);
+          document.getElementById("option-0-container").setAttribute("text", "value", bank[0].answers[0]);
+          document.getElementById("option-1-container").setAttribute("text", "value", bank[0].answers[1]);
+          document.getElementById("option-2-container").setAttribute("text", "value", bank[0].answers[2]);
+          document.getElementById("option-3-container").setAttribute("text", "value", bank[0].answers[3]);
+
+        }
     </script>
 </head>
 <body>
